@@ -33,9 +33,9 @@ void PhoneBook::searchContact()
 
     for (int i = 0; i < limit; i++)
 	{
-        //std::cout << "|" << std::setw(10) << i << "|"; 
+        this->_contacts[i].setIndex(i);
         this->_contacts[i].printContacts();
-    }
+	}
 	while (true)
 	{
 		std::cout << "Enter an index: ";

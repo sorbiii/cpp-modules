@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-Contact::Contact()
+Contact::Contact() : _index(0)
 {
 	;
 }
@@ -63,7 +63,7 @@ bool Contact::_checkInfo(std::string input, std::string message)
 			return (false);
 		if ((int)input.length() != 9)
 		{
-			std::cout << "Phone number can only have 9 digits\n";
+			std::cout << "Phone number must have 9 digits\n";
 			return (false);
 		}
 	}
@@ -104,6 +104,7 @@ std::string Contact::_makePrintable(std::string object)
 
 void Contact::printContacts()
 {
+	std::cout << std::right << _index << '|';
 	std::cout << std::right << std::setw(10) << _makePrintable(this->_firstName) << '|';
 	std::cout << std::right << std::setw(10) << _makePrintable(this->_lastName) << '|';
 	std::cout << std::right << std::setw(10) << _makePrintable(this->_nickname) << '|';
@@ -117,6 +118,11 @@ void Contact::printFullContact()
     std::cout << "Nickname: " << this->_nickname << std::endl;
     std::cout << "Phone Number: " << this->_phoneNumber << std::endl;
     std::cout << "Darkest Secret: " << this->_darkestSecret << std::endl;
+}
+
+void Contact::setIndex(int index)
+{
+	this->_index = index;
 }
 
 void Contact::setInfo()
