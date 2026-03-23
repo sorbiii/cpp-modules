@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+	#include "Fixed.hpp"
 
 Fixed::Fixed(): _bitValue(0)
 {
@@ -19,6 +19,18 @@ Fixed& Fixed::operator=(const Fixed &value)
 	return *this;
 }
 
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_bitValue = value;
+}
+
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_bitValue = roundf(value * (1 << this->_fractionalBits));
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -33,4 +45,14 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	this->_bitValue = raw;
+}
+
+int Fixed::toInt(void) const
+{
+	return this-> _bitValue >> this->_fractionalBits;
+}
+
+float Fixed::toFloat(void) const
+{
+	return (float)this->_bitValue / (1 << this->_fractionalBits);
 }
