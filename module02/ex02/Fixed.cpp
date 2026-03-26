@@ -1,4 +1,4 @@
-	#include "Fixed.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed(): _bitValue(0)
 {
@@ -57,8 +57,124 @@ float Fixed::toFloat(void) const
 	return (float)this->_bitValue / (1 << this->_fractionalBits);
 }
 
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return a;
+	else
+		return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return a;
+	else
+		return b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	if (a > b)
+		return a;
+	else 
+		return b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	if (a > b)
+		return a;
+	else 
+		return b;
+}
+
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
 	os << obj.toFloat();
 	return os;
+}
+
+bool Fixed::operator<(const Fixed& a) const
+{
+	return this->_bitValue < a.getRawBits();
+}
+
+bool Fixed::operator>(const Fixed& a) const
+{
+	return this->_bitValue > a.getRawBits();
+}
+
+bool Fixed::operator>=(const Fixed& a) const
+{
+	return this->_bitValue >= a.getRawBits();
+}
+
+bool Fixed::operator<=(const Fixed& a) const
+{
+	return this->_bitValue <= a.getRawBits();
+}
+
+bool Fixed::operator==(const Fixed& a) const
+{
+	return this->_bitValue == a.getRawBits();
+}
+
+bool Fixed::operator!=(const Fixed& a) const
+{
+	return this->_bitValue != a.getRawBits();
+}
+
+Fixed Fixed::operator+(const Fixed& a) const
+{
+	Fixed newValue;
+	newValue.setRawBits(this->_bitValue + a.getRawBits());
+	return newValue; 
+}
+
+Fixed Fixed::operator-(const Fixed& a) const
+{
+	Fixed newValue;
+	newValue.setRawBits(this->_bitValue - a.getRawBits());
+	return newValue; 
+}
+
+Fixed Fixed::operator*(const Fixed& a) const
+{
+	Fixed newValue;
+	newValue.setRawBits(this->_bitValue * a.getRawBits());
+	return newValue; 
+}
+
+Fixed Fixed::operator/(const Fixed& a) const
+{
+	Fixed newValue;
+	newValue.setRawBits(this->_bitValue / a.getRawBits());
+	return newValue; 
+}
+
+Fixed& Fixed::operator++(void)
+{
+	this->_bitValue++;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed temp = *this;
+	++*this;
+	return (temp);
+}
+
+Fixed& Fixed::operator--(void)
+{
+	this->_bitValue--;
+	return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed temp = *this;
+	--*this;
+	return (temp);
 }

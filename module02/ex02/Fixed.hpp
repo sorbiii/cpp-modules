@@ -24,11 +24,27 @@ class Fixed
 		int toInt(void) const;
 
 		static Fixed& min(Fixed& a, Fixed& b);
-		static Fixed& min(const Fixed& a, const Fixed& b);
+		static const Fixed& min(const Fixed& a, const Fixed& b);
 		static Fixed& max(Fixed& a, Fixed& b);
-		static Fixed& max(const Fixed & a, Fixed& b);
+		static const Fixed& max(const Fixed& a, const Fixed& b);
 
 		//operatory
+		bool operator<(const Fixed& a) const;
+		bool operator>(const Fixed& a) const;
+		bool operator>=(const Fixed& a) const;
+		bool operator<=(const Fixed& a) const;
+		bool operator==(const Fixed& a) const;
+		bool operator!=(const Fixed& a) const;
+
+		Fixed operator+(const Fixed& a) const;
+		Fixed operator-(const Fixed& a) const;
+		Fixed operator*(const Fixed& a) const;
+		Fixed operator/(const Fixed& a) const;
+
+		Fixed& operator++(void); //preincrement
+		Fixed operator++(int); //postincrement
+		Fixed& operator--(void); //preincrement
+		Fixed operator--(int); //postincrement
 };
 	
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
