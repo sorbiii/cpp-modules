@@ -22,7 +22,7 @@ Fixed& Fixed::operator=(const Fixed &value)
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_bitValue = value;
+	this->_bitValue = value << this->_fractionalBits;
 }
 
 Fixed::Fixed(const float value)
