@@ -25,7 +25,17 @@ Point& Point::operator=(const Point& other)
 		this->_y = other._y;
 	}
 	return (*this);
-} 
+}
+
+Fixed Point::getX() const
+{
+	return this->_x;
+}
+
+Fixed Point::getY() const
+{
+	return this->_y;
+}
 
 Point::~Point()
 {
