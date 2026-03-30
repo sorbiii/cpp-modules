@@ -12,7 +12,7 @@ int main(void)
 	if (result)
 		std::cout << "this point is inside the triangle:)" << std::endl;
 	else
-		std::cout << "it's not:(" << std::endl; 
+		std::cout << "this point isn't inside the triangle:(" << std::endl; 
 	
 	return 0;
 }
