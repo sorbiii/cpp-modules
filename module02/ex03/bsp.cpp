@@ -1,6 +1,11 @@
 #include "Point.hpp"
 
-Fixed cross(Point const v, Point const w, Point const point) // bedzie zwracać d
+bool isTriangle(Point const a, Point const b, Point const c)
+{
+	
+}
+
+Fixed cross(Point const v, Point const w, Point const point) // bedzie zwracać d - zoabczyc na czym polega ten wzór
 {
 	Fixed result;
 	result = (point.getX() - w.getX()) * (v.getY() - w.getY()) 

@@ -1,12 +1,16 @@
 #include "Point.hpp"
 
+
+
+
+
 int main(void)
 {
 	bool result;
 	Point a(0.0f, 0.0f);
 	Point b(4.0f, 0.0f);
 	Point c(0.0f, 4.0f);
-	Point point(1.0f, 1.0f);
+	Point point(0.0f, 0.0f);
 
 	result = bsp(a, b, c, point);
 	if (result)
@@ -16,3 +20,6 @@ int main(void)
 	
 	return 0;
 }
+
+//vertex, edge - false
+//triangle?
