@@ -9,16 +9,11 @@ int main(void)
 	c = d; //operator przypisania
 
 	c.attack("rysiu");
+	for (int i = 0; i < 9; i++)
+	{
+		a.attack("zygmunt");
+	}
 	b.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
-	a.attack("zygmunt");
 	a.beRepaired(1);
 	a.attack("zygmunt");
 	a.attack("zygmunt");
