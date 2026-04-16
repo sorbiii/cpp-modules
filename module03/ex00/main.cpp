@@ -13,7 +13,7 @@ int main(void)
 	{
 		a.attack("zygmunt");
 	}
-	b.attack("zygmunt");
+	b.attack("ryszard");
 	a.beRepaired(1);
 	a.attack("zygmunt");
 	a.attack("zygmunt");
@@ -22,4 +22,7 @@ int main(void)
 	a.attack("zygmunt");
 	a.attack("zygmunt");
 	a.beRepaired(5);
+	a.takeDamage(12);
+	a.takeDamage(2);
+	a.beRepaired(20);
 }

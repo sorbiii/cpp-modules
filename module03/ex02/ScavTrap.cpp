@@ -5,19 +5,19 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	std::cout << "ScavTrap default constructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " copy constructor called";
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 {
 	if (this != &other)
 	{
-		std::cout << "ScavTrap copy assigment operator called" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " copy assigment operator called" << std::endl;
 		ClapTrap::operator=(other);
 	}
 	return *this;
@@ -25,7 +25,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap dectructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " dectructor called" << std::endl;
 }
 
 void ScavTrap::guardGate()
@@ -47,5 +47,5 @@ void ScavTrap::attack(const std::string &target)
 	}
 	this->_energyPoints--;
 	std::cout << "Scav Trap " << this->_name << " attacks " << target 
-		<< ", causing "<< this->_attackDamage << " point of damage!" << std::endl;
+		<< ", causing "<< this->_attackDamage << " points of damage!" << std::endl;
 }

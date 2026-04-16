@@ -3,18 +3,18 @@
 ClapTrap::ClapTrap(std::string name)
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap default constructor called" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 	: _name(other._name), _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage)
 {
-	std::cout << "ClapTrap copy constructor called" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " copy constructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 {
-	std::cout << "ClapTrap copy assigment operator called" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " copy assigment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->_name = other._name;
@@ -27,19 +27,19 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " destructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (this->_energyPoints == 0)
-	{
-		std::cout << this->_name << " doesn't have any energy points :(" << std::endl;
-		return;
-	}
 	if (this->_hitPoints == 0)
 	{
-		std::cout << this->_name << " has no hit points left:(" << std::endl;
+		std::cout << "attack function: " << this->_name << " has no hit points left:(" << std::endl;
+		return;
+	}
+	if (this->_energyPoints == 0)
+	{
+		std::cout << "attack function: " << this->_name << " doesn't have any energy points :(" << std::endl;
 		return;
 	}
 	this->_energyPoints--;
@@ -48,16 +48,15 @@ void ClapTrap::attack(const std::string& target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_energyPoints == 0)
+	if (this->_hitPoints == 0)
 	{
-		std::cout << this->_name << " has no energy points left:(" << std::endl;
+		std::cout << "takeDamage function: " << this->_name << " is already dead" << std::endl;
 		return;
 	}
 	if (amount > this->_hitPoints)
 	{
-		std::cout << this->_name << " has no hit points" << std::endl;
 		this->_hitPoints = 0;
-		return;
+		std::cout << "Clap Trap takeDamge function: " << this->_name << " doesn't have enough hit points " << std::endl;
 	}
 	else
 	{
@@ -69,9 +68,14 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->_hitPoints == 0)
+	{
+		std::cout << "beRepaired function: " << this->_name << " has no hit points left:(" << std::endl;
+		return;
+	}
 	if (this->_energyPoints == 0)
 	{
-		std::cout << this->_name << " has no energy points left:(" << std::endl;
+		std::cout << "beRepaired function: " << this->_name << " has no energy points left:(" << std::endl;
 		return;
 	}
 	this->_hitPoints += amount;
