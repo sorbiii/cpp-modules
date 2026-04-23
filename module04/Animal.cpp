@@ -10,7 +10,7 @@ Animal::Animal(std::string name) : _type(name)
 	std::cout << "Animal " << this->_type << " default constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& other)
+Animal::Animal(const Animal &other)
 {
 	this->_type = other._type;
 	*this = other; //?
@@ -33,7 +33,12 @@ Animal::~Animal()
 	std::cout << "Animal " << this->_type << " destructor called" << std::endl;
 }
 
-void Animal::makeSound()
+std::string Animal::getType() const
+{
+	return this->_type;
+}
+
+void Animal::makeSound() const
 {
 	std::cout << "Animal " << this->_type << " made a sound" << std::endl;
 }
