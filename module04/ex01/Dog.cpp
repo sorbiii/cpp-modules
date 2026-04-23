@@ -1,8 +1,8 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : Animal("Puppy")
 {
-	std::cout << "Dog " << this->_type << " default constructor called" << std::endl;
+	std::cout << "Puppy " << this->_type << " default constructor called" << std::endl;
 }
 
 Dog::Dog(std::string name) : Animal(name)
@@ -23,6 +23,8 @@ Dog& Dog::operator=(const Dog &other)
 		this->_type = other._type;
 	}
 	return *this;
+	
+	std::cout << "Dog " << this->_type << " copy assignment operator called" << std::endl; 
 }
 
 Dog::~Dog()

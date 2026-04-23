@@ -13,13 +13,12 @@ Animal::Animal(std::string name) : _type(name)
 Animal::Animal(const Animal &other)
 {
 	this->_type = other._type;
-	*this = other; //?
 	std::cout << "Animal " << this->_type << " copy constructor called" << std::endl;
 }
 
 Animal& Animal::operator=(const Animal &other)
 {
-	std::cout << "Animal " << this->_type << " copy assigment operator called" << std::endl;
+	std::cout << "Animal " << this->_type << " copy assignment operator called" << std::endl;
 
 	if (this != &other)
 	{
@@ -36,6 +35,11 @@ Animal::~Animal()
 std::string Animal::getType() const
 {
 	return this->_type;
+}
+
+void Animal::setType(std::string name)
+{
+	this->_type = name;
 }
 
 void Animal::makeSound() const
