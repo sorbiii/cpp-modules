@@ -8,8 +8,8 @@ int main(void)
     a = b;
 	ScavTrap scav("scav");
 
-    for (int i = 0; i < 100)
-    b.attack("zygmunt");
+    for (int i = 0; i < 100; i++)
+        b.attack("zygmunt");
     b.takeDamage(50);
 	b.takeDamage(40);
     b.beRepaired(20);
