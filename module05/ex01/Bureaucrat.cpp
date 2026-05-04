@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Stanisław"), _grade(1){}
 
@@ -50,7 +51,7 @@ int Bureaucrat::getGrade() const
 	return this->_grade;
 }
 
-void Bureaucrat::incrementGrade() //decrement
+void Bureaucrat::incrementGrade()
 {
 	std::cout << "attempting to increase grade" << std::endl;
 
@@ -86,6 +87,19 @@ void Bureaucrat::decrementGrade()
 	{
 		std::cout << e.what() << std::endl;
 	}
+}
+
+void Bureaucrat::signForm(Form &other)
+{
+    try
+	{
+        other.beSigned(*this);
+        std::cout << this->getName() << " signed " << other.getName() << std::endl;
+    }
+	catch (std::exception &e)
+	{
+        std::cout << this->getName() << " couldn't sign " << other.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)

@@ -1,9 +1,9 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include <iostream>
-#include <string>
-#include <exception>
+# include <iostream>
+# include <string>
+# include <exception>
 
 class Bureaucrat;
 
@@ -38,5 +38,6 @@ class Form
 		void beSigned(Bureaucrat& other);
 };
 
+std::ostream &operator<<(std::ostream &out, const Form& src);
 
 #endif
