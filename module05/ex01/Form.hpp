@@ -12,7 +12,7 @@ class Form
 	private:
 		const std::string _name;
 		bool _signed;
-		const int _signGrade;
+		const int _requiredSignGrade;
 		const int _execGrade;
 	
 	public:
@@ -26,7 +26,7 @@ class Form
 		};
 
 		Form();
-		Form(std::string name, int x);
+		Form(std::string name, int x); //w konstruktorze trzeba dodać requiredSignGrade
 		Form(const Form& other);
 		Form& operator=(const Form& other);
 		~Form();

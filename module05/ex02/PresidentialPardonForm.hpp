@@ -3,7 +3,7 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public AForm
+class PresidentialPardonForm : public AForm //dziedziczy z AForm - nie ma dostępu do rzeczy z private(gdyby były protected to by miało ale nie ma)
 {
     private:
         const std::string _target;

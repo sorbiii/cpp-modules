@@ -17,7 +17,7 @@ int main()
         std::cout << b2 << std::endl;
         b2.incrementGrade();
         std::cout << b2 << std::endl;
-        b2.incrementGrade();
+        b2.incrementGrade(); //przy tej inkrementacji wyskakuje błąd 
     } catch (std::exception &e) {
         std::cout << "Test 2 Error: " << e.what() << std::endl;
     }

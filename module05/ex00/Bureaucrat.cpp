@@ -28,7 +28,11 @@ std::string Bureaucrat::getName() const
 {
 	return _name;
 }
-int Bureaucrat::getGrade() const { return _grade; }
+
+int Bureaucrat::getGrade() const 
+{ 
+	return _grade; 
+}
 
 void Bureaucrat::incrementGrade()
 {

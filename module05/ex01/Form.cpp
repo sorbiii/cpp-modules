@@ -1,9 +1,9 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : _name("Someone"), _signed(false), _signGrade(150), _execGrade(150) {};
+Form::Form() : _name("SomeForm"), _signed(false), _requiredSignGrade(150), _execGrade(150) {};
 
-Form::Form(std::string name, int x) : _name(name), _signed(false), _signGrade(x), _execGrade(150)
+Form::Form(std::string name, int x) : _name(name), _signed(false), _requiredSignGrade(x), _execGrade(150)
 {
 	if (x < 1)
 		throw Form::GradeTooHighException();
@@ -13,7 +13,7 @@ Form::Form(std::string name, int x) : _name(name), _signed(false), _signGrade(x)
 
 Form::Form(const Form &other) : 
 	_name(other._name),
-	_signGrade(other._signGrade),
+	_requiredSignGrade(other._requiredSignGrade),
 	_execGrade(other._execGrade)
 {
 	this->_signed = other._signed;
@@ -42,7 +42,7 @@ bool Form::getSign() const
 
 int Form::getSignGrade() const
 {
-	return this->_signGrade;
+	return this->_requiredSignGrade;
 }
 
 int Form::getExecGrade() const
@@ -62,7 +62,7 @@ const char *Form::GradeTooHighException::what() const throw()
 
 void Form::beSigned(Bureaucrat &other)
 {
-	if (other.getGrade() > this->_signGrade)
+	if (other.getGrade() > this->_requiredSignGrade)
 		throw Form::GradeTooLowException();
 	else
 		this->_signed = true;
