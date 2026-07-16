@@ -2,9 +2,9 @@ C++ = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = converter
+NAME = identyfier
 
-SRC = main.cpp ScalarConverter.cpp
+SRC = main.cpp Identyfier.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
