@@ -5,6 +5,10 @@
 #include <string>
 #include <iostream>
 #include <exception> //?
+#include <limits>
+#include <iomanip>
+#include <sstream>
+#include <cmath>
 
 class ScalarConverter
 {
@@ -15,10 +19,12 @@ class ScalarConverter
 		~ScalarConverter();
 
 		static void convert(std::string target);
-
 };
 	
 bool isNumber(std::string target);
 void printChar(std::string target);
+void printInt(std::string target);
+void printFloat(std::string target);
+void printDouble(std::string target);
 	
 #endif
