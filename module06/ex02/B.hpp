@@ -1,14 +1,14 @@
-#ifndef A_HPP
-#define A_HPP
+#ifndef B_HPP
+#define B_HPP
 
 #include <string>
 #include <iostream>
 #include "Base.hpp"
 
-class A : public Base
+class B : public Base
 {
 	public:
-		~A();
+		~B();
 };
 
 #endif

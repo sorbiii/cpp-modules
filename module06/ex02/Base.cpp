@@ -1,3 +1,6 @@
 #include "Base.hpp"
 
-Base::~Base() {}
+Base::~Base() 
+{
+	std::cout << "Base class destroyed" << std::endl;
+}

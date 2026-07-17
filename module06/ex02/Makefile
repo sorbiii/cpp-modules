@@ -4,7 +4,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = identyfier
 
-SRC = main.cpp Identyfier.cpp
+SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
