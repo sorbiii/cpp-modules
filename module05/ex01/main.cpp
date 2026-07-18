@@ -13,15 +13,18 @@ int main()
         std::cout << "Złapano: " << e.what() << std::endl;
     }
 
-    try {
+    try 
+    {
         Form low("LowLevel", 151); 
-    } catch (std::exception &e) {
+    } catch (std::exception &e)
+    {
         std::cout << "Złapano: " << e.what() << std::endl;
     }
 
     std::cout << "\n";
 	//test podpisywania umowy
-    try {
+    try 
+    {
         Bureaucrat boss("Zbych", 45);        // Ranga 45
         Bureaucrat intern("Praktykant", 100); // Ranga 100
         Form contract("Umowa Najmu", 50);    // Wymaga rangi 50 do podpisu
@@ -29,17 +32,18 @@ int main()
 
         std::cout << "Informacje o formularzu:\n" << contract << std::endl;
 
-        // 1. Proba podpisu przez osobe z za niska ranga
+        //Proba podpisu przez osobe z za niska ranga
         std::cout << "Próba praktykanta" << std::endl;
         intern.signForm(contract); 
         
-        // 2. Proba podpisu przez osobe z odpowiednia ranga
+        //Proba podpisu przez osobe z odpowiednia ranga
         std::cout << "\n Proba Zbycha" << std::endl;
         boss.signForm(contract);
 
         std::cout << "\nStan formularza po probach:\n" << contract << std::endl;
 
-    } catch (std::exception &e) {
+    } catch (std::exception &e) 
+    {
         std::cout << "Błąd krytyczny: " << e.what() << std::endl;
     }
 

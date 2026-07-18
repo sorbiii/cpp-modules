@@ -26,7 +26,7 @@ int main()
 {
     std::srand(std::time(NULL)); //losowość
 
-    std::cout << "--- TEST 1: Shrubbery (Sukces) ---" << std::endl;
+    std::cout << "Shrubbery" << std::endl;
     try 
 	{
 		Bureaucrat brian("Brian", 1);
@@ -43,25 +43,25 @@ int main()
         std::cerr << "Blad: " << e.what() << std::endl;
     }
 
-    std::cout << "\n--- TEST 2: Robotomy (50/50 szans) ---" << std::endl;
+    std::cout << "\nRobotomy" << std::endl; //50/50
     try 
 	{
         Bureaucrat boss("Boss", 1);
-        RobotomyRequestForm robot("Target_X");
+        RobotomyRequestForm robot("target");
         
         boss.signForm(robot);
         boss.executeForm(robot);
-        boss.executeForm(robot); // Kolejna proba
+        boss.executeForm(robot); // druga proba dla sprawdzenia
     }
 	catch (std::exception &e) 
 	{
         std::cerr << "Blad: " << e.what() << std::endl;
     }
 
-    std::cout << "\n--- TEST 3: Presidential Pardon (Brak uprawnien do wykonania) ---" << std::endl;
+    std::cout << "\nPresidential Pardon" << std::endl; //nie ma uprawnien
     try
 	{
-        Bureaucrat intern("Intern", 20); // Moze podpisac (25), ale nie wykona (5)
+        Bureaucrat intern("Intern", 20); // Moze podpisac (wymagane - 25), ale nie wykona (wymagane - 5)
         PresidentialPardonForm pardon("Criminal");
         
         intern.signForm(pardon);
@@ -72,13 +72,13 @@ int main()
         std::cerr << "Blad: " << e.what() << std::endl;
     }
 
-    std::cout << "\n--- TEST 4: Brak podpisu ---" << std::endl;
+    std::cout << "\nBrak podpisu" << std::endl;
     try 
 	{
         Bureaucrat king("King", 1);
         PresidentialPardonForm pardon("Someone");
         
-        // king.signForm(pardon); // Celowo pominiete
+        // king.signForm(pardon); // Celowo pominiete - dzieki temu jest blad w terminalu
         king.executeForm(pardon);
     } 
 	catch (std::exception &e) 
